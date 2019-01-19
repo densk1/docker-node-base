@@ -1,9 +1,13 @@
 const express = require('express');
+const dotenv = require('dotenv');
 
 const app = express();
+dotenv.config();
 
 app.get('/', (req, res) => {
-  res.status(200).send('Server is still live');
+  res.status(200).send('Server is live');
 })
 
-app.listen(3000, () => console.log('Running on port 3000'));
+const { SERVER_PORT } = process.env;
+
+app.listen(SERVER_PORT, () => console.log(`Running on port ${SERVER_PORT}`));
