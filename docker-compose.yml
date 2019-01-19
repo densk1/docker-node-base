@@ -1,0 +1,13 @@
+version: "3.2"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: nodemon index.js
+    volumes:
+      - /usr/app/node_modules
+      - .:/usr/app
+    ports:
+      - "3000:3000"
