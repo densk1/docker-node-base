@@ -1,1 +1,5 @@
+### Stop Tracking a file
+## https://stackoverflow.com/questions/4348590/how-can-i-make-git-ignore-future-revisions-to-a-file
+# start => git update-index --skip-worktree .env
+# stop  => git update-index --no-skip-worktree .env
 node_modules
