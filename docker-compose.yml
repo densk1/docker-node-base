@@ -11,3 +11,22 @@ services:
       - .:/usr/app
     ports:
       - "3000:3000"
+    depends_on:
+      - mongo
+  mongo:
+    # https://stackoverflow.com/questions/34559557/how-to-enable-authentication-on-mongodb-through-docker
+    image: mongo:latest # 4.1.6
+    restart: always
+    env_file:
+      - ./.env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    volumes:
+    # https://stackoverflow.com/questions/26331651/how-can-i-backup-a-docker-container-with-its-data-volumes
+      - mongo-volume:/data/db
+    ports:
+      - "27017:27107"
+volumes:
+  mongo-volume:

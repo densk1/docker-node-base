@@ -3,3 +3,4 @@
 # start => git update-index --skip-worktree .env
 # stop  => git update-index --no-skip-worktree .env
 node_modules
+data
