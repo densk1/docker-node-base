@@ -15,6 +15,7 @@ services:
       - mongo
   mongo:
     # https://stackoverflow.com/questions/34559557/how-to-enable-authentication-on-mongodb-through-docker
+    # https://github.com/docker-library/docs/tree/master/mongo
     image: mongo:latest # 4.1.6
     restart: always
     env_file:
